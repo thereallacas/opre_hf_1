@@ -1,10 +1,25 @@
 package opre_hf_01;
 
+import java.util.List;
+import java.util.ArrayList;
 import java.util.Collections;
 
 public class SchedulerSJF extends Scheduler{
 	void Sort(){
-		Collections.sort(super.tasks, Task.SJFTaskComparator);
+		Collections.sort(tasks, Task.SJFTaskComparator);
+		int ready=0;
+		int time=0;
+		List<Task> newlist = new ArrayList<Task>();
+		while (ready!=tasks.size()){
+		for (Task task : tasks) {
+			if (task.start_time==time){
+				newlist.add(task);
+				ready++;
+			}
+		}
+		time++;
+		}
+		tasks=newlist;
 	}
 	int schwait_time=0;
 	void setWaittimes(){

@@ -35,4 +35,5 @@ public class Task {
 			return t1.CPU_burst.compareTo(t2.CPU_burst);
 		}
 	};
+	
 }
